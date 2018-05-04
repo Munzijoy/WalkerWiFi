@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" translatable="false">WalkerWiFi</string>
+    <string name="action_startTCPServer">Start TCP server</string>
+    <string name="action_connect">Connect</string>
+    <string name="user_WiFiSSID" translatable="false">WalkerWiFi</string>
+    <string name="user_WiFiPassphrase" translatable="false">mywalker</string>
+    <string name="user_WiFiIsDisabled">WiFi disabled</string>
+    <string name="user_alreadyConnected">already connected</string>
+    <string name="user_WiFiDiasabled">WiFi is disabled</string>
+    <string name="user_TryingToConnect">trying to connect.</string>
+    <string name="user_connectionEstablished">Connection established</string>
+    <string name="user_connectionError">connection error :-(</string>
+    <string name="user_connectingStarted">trying to connect</string>
+    <string name="user_startingTcpServer">starting TCP server</string>
+    <string name="user_helloThisIsQuagga" translatable="false">Hello, this is quagga :-)</string>
+    <string name="user_WiFiHasBeenEnabled">wifi has been enabled</string>
+    <string name="user_WiFiCanNotBeEnabled">Wifi can not be enabled. Check settings.</string>
+    <string name="action_stopTCPServer">stop TCP server</string>
+    <string name="user_stoppingTcpServer">stopping tcp server</string>
+</resources>

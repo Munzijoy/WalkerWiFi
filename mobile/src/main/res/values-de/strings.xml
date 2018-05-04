@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_startTCPServer">TCP Server starten</string>
+    <string name="action_stopTCPServer">TCP server stoppen</string>
+    <string name="action_connect">Verbinden</string>
+    <string name="user_alreadyConnected">bereits verbunden</string>
+    <string name="user_WiFiIsDisabled">WiFi deaktiviert</string>
+    <string name="user_TryingToConnect">Verbindungsversuch</string>
+    <string name="user_connectionEstablished">Verbindung hergestellt</string>
+    <string name="user_connectionError">Verbindung konnte nicht hergestellt werden</string>
+    <string name="user_connectingStarted">Verbindungsversuch gestartet</string>
+    <string name="user_startingTcpServer">Starte den TCP Server</string>
+    <string name="user_WiFiHasBeenEnabled">WLAN wurde aktiviert</string>
+    <string name="user_WiFiCanNotBeEnabled">WLAN kann nicht aktiviert werden. Bitte Einstellungen prüfen.</string>
+    <string name="user_stoppingTcpServer">TCP Server wird gestoppt</string>
+</resources>
