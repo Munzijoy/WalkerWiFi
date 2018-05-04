@@ -17,4 +17,6 @@
     <string name="user_WiFiCanNotBeEnabled">Wifi can not be enabled. Check settings.</string>
     <string name="action_stopTCPServer">stop TCP server</string>
     <string name="user_stoppingTcpServer">stopping tcp server</string>
+    <string name="user_hostname" translatable="false">192.168.4.1</string>
+    <string name="user_port" translatable="false">80</string>
 </resources>

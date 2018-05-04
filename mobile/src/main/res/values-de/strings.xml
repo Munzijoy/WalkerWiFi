@@ -13,4 +13,5 @@
     <string name="user_WiFiHasBeenEnabled">WLAN wurde aktiviert</string>
     <string name="user_WiFiCanNotBeEnabled">WLAN kann nicht aktiviert werden. Bitte Einstellungen prüfen.</string>
     <string name="user_stoppingTcpServer">TCP Server wird gestoppt</string>
+    <string name="user_WiFiDiasabled">WLAN ist deaktiviert</string>
 </resources>
