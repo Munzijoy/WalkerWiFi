@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -334,13 +335,40 @@ class TCPclient extends AppCompatActivity {
     }
 
     public void StartServer() throws IOException {
-        InetAddress serverAddr = InetAddress.getByName(hostname);
-        socket = new Socket(serverAddr, port);
+
+
         Log.d("Sascha", "TCP Server started");
+
+        StartSocketThreadClass startSocketThreadClass = new StartSocketThreadClass();
+        Thread startSocketThread = new Thread(startSocketThreadClass);
+        startSocketThread.start();
+
+        try {
+            startSocketThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         TcpNetwork tcpNetwork = new TcpNetwork();
         Thread tcpNetworkThread = new Thread(tcpNetwork);
         tcpNetworkThread.start();
+    }
+
+    public class StartSocketThreadClass implements Runnable {
+
+        public void run() {
+            InetAddress serverAddr = null;
+            try {
+                serverAddr = InetAddress.getByName(hostname);
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
+            try {
+                socket = new Socket(serverAddr, port);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public class TcpNetwork implements Runnable {
