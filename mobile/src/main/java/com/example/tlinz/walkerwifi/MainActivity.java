@@ -1,7 +1,10 @@
 package com.example.tlinz.walkerwifi;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +19,21 @@ public class MainActivity extends AppCompatActivity {
     boolean gbWiFiConnected = false;
     boolean gbTcpServerStarted = false;
     TCPclient gTcpClient = null;
+    public static MainActivity instance = null;
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        instance = this;
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        instance = null;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     // ============================
                     // start TCP server
                     // ============================
-                    gTcpClient = new TCPclient(tv);
+                    gTcpClient = new TCPclient(getApplicationContext(), tv);
                     gTcpClient.StartServer();
                     // ============================
 
@@ -105,7 +123,15 @@ public class MainActivity extends AppCompatActivity {
                     return false;
                 }
 
-                gbWiFiConnected = MakeToastByWiFiConnectionResult(new WiFiConnectionHelper().ConnectToWiFi(tv, getApplicationContext()));
+                WiFiConnectionHelper wiFiConnectionHelper = new WiFiConnectionHelper(tv, getApplicationContext());
+
+                if (instance == null){
+                    return false;
+                }
+
+                wiFiConnectionHelper.StartScanForSSID(instance);
+
+                gbWiFiConnected = MakeToastByWiFiConnectionResult(wiFiConnectionHelper.ConnectToWiFi());
                 boolean bTcpServerCanBeEnabled = gbWiFiConnected;
 
                 if (bTcpServerCanBeEnabled){
